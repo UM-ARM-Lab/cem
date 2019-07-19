@@ -1,15 +1,15 @@
 import gym
 
 
-def setup_env(env_id):
-    if env_id == 'cartpole':
+def setup_env(env_name):
+    if env_name == 'cartpole':
         return setup_cartpole()
 
-    elif env_id == 'pendulum':
+    elif env_name == 'pendulum':
         return setup_pendulum()
 
     else:
-        raise ValueError('env {} not supported'.format(env_id))
+        raise ValueError('env {} not supported'.format(env_name))
 
 
 def setup_pendulum():
@@ -28,6 +28,6 @@ def setup_cartpole():
 
     env.action_space.type = 'discrete'
 
-    #  shape is empty tuple in the gym env
+    #   shape is empty tuple in the gym env
     env.action_space.shape = (1,)
     return env, obs_shape, act_shape
